@@ -1,0 +1,4 @@
+If you are adding MSBIL folder to your computer for the first time, you may need to install the following items to utilize the Jupyter Notebook to it's fullest extent.
+
+Julia (https://datatofish.com/add-julia-to-jupyter/)
+Python 
