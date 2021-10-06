@@ -4,3 +4,4 @@ This includes general documents and details of what we do in the lab along with 
 Still in the process of being updated.
 
 Includes singularity container recipe files for storage and keeping track of updates made for usage on high performance computing resources for the University of Arizona.
+Below is the current list of the different containers we house on the HPC:
