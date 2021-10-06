@@ -1,0 +1,39 @@
+Bootstrap: docker
+FROM: nvidia/cuda:10.0-cudnn7-devel
+
+%post
+  . /environment
+  SHELL=/bin/bash
+  CPATH="/usr/local/cuda/include:$CPATH"
+  PATH="/usr/local/cuda/bin:$PATH"
+  LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+  CUDA_HOME="/usr/local/cuda"
+  apt-get update
+  apt-get install -y wget git vim build-essential cmake yum libxxf86vm1 libgtk2.0-0 python3.6 python3.6-dev python3.6-venv python3-distutils python3-apt libgtk-3-dev xauth curl
+  wget https://bootstrap.pypa.io/get-pip.py
+  python3.6 get-pip.py
+  ln -s /usr/bin/python3.6 /usr/local/bin/python3
+
+
+  pip install wxPython
+  pip install tensorflow-gpu==1.13.1
+  pip install DeepLabCut
+  
+  cd /usr/local/lib/python3.6/dist-packages/deeplabcut/pose_estimation_tensorflow/models/pretrained
+  bash download.sh
+  chmod 777 -R /usr/local/lib/python3.6/dist-packages/deeplabcut/pose_estimation_tensorflow/models/pretrained
+
+%environment
+
+  # use bash as default shell
+  SHELL=/bin/bash
+
+  # add CUDA paths
+  CPATH="/usr/local/cuda/include:$CPATH"
+  PATH="/usr/local/cuda/bin:$PATH"
+  LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+  CUDA_HOME="/usr/local/cuda"
+
+
+  export PATH LD_LIBRARY_PATH CPATH CUDA_HOME
+  
