@@ -7,7 +7,10 @@ Includes singularity container recipe files for storage and keeping track of upd
 Below is the current list of the different containers we house on the HPC:
 - DeepLabCut (DLC) GUI: deeplabcut.sif (made from deeplabcut.recipe) - used for animal tracking of behavior and is created by this group: https://github.com/DeepLabCut/DeepLabCut
         - DLC has been adapted to work on the UofA HPC for research purposes in the lab. 
-- Nklab-neurotools: this is a singularity container that holds a great deal of different programs utilized often within our lab and was provided by Dr.Chen's group. It houses itksnap,mrview, mrtrix, antstools, and much more. Created by Chidi Ugonda, where we utilize the recipe file and have made minor modifications to adapt for our lab use: https://github.com/MRIresearch/NeuroPipelines/tree/master/containers/nklab-neurotools-v0.4
+- Nklab-neurotools: this is a singularity container that holds a great deal of different programs utilized often within our lab and was provided by Dr.Chen's group. It houses itksnap,mrview, mrtrix, antstools, and much more. Created by Chidi Ugonda, where we utilize the recipe file and have made minor modifications to adapt for our lab use on the HPC: https://github.com/MRIresearch/NeuroPipelines/tree/master/containers/nklab-neurotools-v0.4
+        - Minor updates include: 
+                - %setup including all files needed to be copied instead of in %files section of definition file.
+                - for MRtrix, including NUMBER_OF_PROCESSORS=1 ./build for preventing memory allocation error (described here as a common problem: https://mrtrix.readthedocs.io/en/3.0_rc3/troubleshooting/performance_and_crashes.html)
 - MRtrix3: a singularity container that houses newer version of mrtrix commands since some caused errors when run from the nklab-neurotools container. 
 
 
