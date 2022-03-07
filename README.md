@@ -21,3 +21,9 @@ Individual Programs we use and how to properly cite them:
 -TORTOISE
 -MIPAV
 -MRTRIX
+We also work with a wide variety of specimens when imaging, below are volume renders of each brain-type:
+-BM
+-F
+-M
+-R
+-H
